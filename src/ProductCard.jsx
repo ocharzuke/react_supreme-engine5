@@ -1,6 +1,10 @@
 import React from "react";
 
 const ProductCard = (props) => {
+  const handleAddToCart = () => {
+    alert("Added to Cart!");
+  };
+
   return (
     <div className="card shadow-sm">
       <img
@@ -17,7 +21,11 @@ const ProductCard = (props) => {
             <button type="button" className="btn btn-sm btn-outline-secondary">
               Details
             </button>
-            <button type="button" className="btn btn-sm btn-outline-danger">
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              className="btn btn-sm btn-outline-danger"
+            >
               Add To Cart
             </button>
           </div>
