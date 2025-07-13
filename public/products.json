@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Typewriter-themed Set",
+    "price": 19.99,
+    "image": "https://picsum.photos/id/20/300/200",
+    "description": "Beautiful typewriter themed"
+  },
+  {
+    "id": 2,
+    "name": "Architecture-themed Set",
+    "price": 25.99,
+    "image": "https://picsum.photos/id/508/300/200",
+    "description": "Featuring only beautiful concrete"
+  },
+  {
+    "id": 3,
+    "name": "Hot Air Balloon-themed Set",
+    "price": 28.99,
+    "image": "https://picsum.photos/id/401/300/200",
+    "description": "Dreamy vibes amidst floating clouds only"
+  },
+  {
+    "id": 4,
+    "name": "Mountain-themed Set",
+    "price": 30.99,
+    "image": "https://picsum.photos/id/287/300/200",
+    "description": "For those who dream of high places"
+  },
+  {
+    "id": 5,
+    "name": "Famous Landmarks-themed Set",
+    "price": 40.99,
+    "image": "https://picsum.photos/id/318/300/200",
+    "description": "Iconic and recognisable motifs"
+  },
+  {
+    "id": 6,
+    "name": "Seascapes-themed Set",
+    "price": 55.99,
+    "image": "https://picsum.photos/id/213/300/200",
+    "description": "All you water babies out there let's splash"
+  }
+]

@@ -1,26 +1,31 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
-
-const validationSchema = Yup.object({
-  name: Yup.string().required("Name is required"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string()
-    .required("Password is required")
-    .matches(
-      /^[A-Za-z0-9]{8,20}$/,
-      "Password must be 8–20 characters, letters and numbers only, no spaces or special characters"
-    ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match!")
-    .required("Please retype your password to confirm it"),
-  salutation: Yup.string().required("Salutation is required"),
-  country: Yup.string().required("Country is required"),
-});
+import { useFlashMessage } from "./FlashMessageStore";
+import { useLocation } from "wouter";
 
 export default function RegistrationPage() {
+  const { showMessage } = useFlashMessage();
+  const [_, setLocation] = useLocation();
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string()
+      .required("Password is required")
+      .matches(
+        /^[A-Za-z0-9]{8,20}$/,
+        "Password must be 8–20 characters, letters and numbers only, no spaces or special characters"
+      ),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match!")
+      .required("Please retype your password to confirm it"),
+    salutation: Yup.string().required("Salutation is required"),
+    country: Yup.string().required("Country is required"),
+  });
+
   const initialValues = {
     name: "",
     email: "",
@@ -32,9 +37,15 @@ export default function RegistrationPage() {
   };
 
   const handleSubmit = (values, formikHelpers) => {
-    console.log("Form values:", values);
-    formikHelpers.setSubmitting(false);
+    console.log("form values =>", values);
+
+    setTimeout(function () {
+      formikHelpers.setSubmitting(false);
+      showMessage("You have been registered!", "success");
+      setLocation("/");
+    }, 500);
   };
+
   return (
     <>
       <div className="container-fluid px-5 py-5 bg-body-tertiary">
